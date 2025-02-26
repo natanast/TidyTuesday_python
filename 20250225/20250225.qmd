@@ -7,6 +7,7 @@ subtitle: "TidyTuesday Python Challenge: A collaboration with Posit"
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+import textwrap
 
 # Load the data 
 
@@ -18,16 +19,42 @@ df = pd.read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/
 ```
 
 ```{python}
-# Group by year and journal, then pivot for stacked area plot
+# Clean data
 pub_trends = df.groupby(['year', 'journal']).size().unstack(fill_value=0)
+df_flat = pub_trends.reset_index()
 
-# Plot stacked area chart
-plt.figure(figsize=(9,6))
-plt.stackplot(pub_trends.index, pub_trends.T, labels=pub_trends.columns, alpha=0.7)
-plt.xlabel("Year")
-plt.ylabel("Number of Publications")
-plt.title("Publication Trends by Journal")
-plt.legend(loc='upper left', fontsize=8)
+# One row per year-journal pair
+df_melted = df_flat.melt(id_vars='year', var_name='journal', value_name='count')
+
+# Wrap the journal names
+df_melted['journal_wrapped'] = df_melted['journal'].apply(lambda x: "\n".join(textwrap.wrap(x, width=25)))
+
+# Plot
+plt.figure(figsize=(6,6))
+
+sns.scatterplot(
+    data = df_melted, 
+    x = "year", 
+    y = "journal_wrapped", 
+    size = "count", 
+    sizes = (20, 200), 
+    alpha = 0.7
+)
+
+# Add labels and title
+plt.xlabel("")
+plt.ylabel("")
+plt.title("Publication Trends by Journal (Size based on Publication Count)")
+
+plt.legend(
+    title='Publication Count', 
+    loc='upper left', 
+    bbox_to_anchor=(1, 0.6),
+    fontsize=8
+    )
+
+# plt.xticks(rotation=45)
+plt.xticks(ticks=sorted(df['year'].unique()), rotation=45)
 plt.show()
 
 ```
