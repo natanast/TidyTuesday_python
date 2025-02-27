@@ -65,7 +65,7 @@ plt.text(x = 0.5, y = 1.045,
 
 # Add a caption to the plot
 plt.text(
-    x = 0.9, y = -0.1,  # Adjust x, y to position the caption below the plot
+    x = 0.85, y = -0.1,  # Adjust x, y to position the caption below the plot
     s = "Source: Academic Literature Dataset | Graphic: Natasa Anastasiadou", 
     ha = 'center', 
     va = 'center', 
