@@ -1,17 +1,16 @@
-# CDC Datasets
+# Academic Literature on Racial and Ethnic Disparities in Reproductive Medicine in the US
 
-This week we're exploring datasets that the Trump administration has purged. 
+This week we're exploring data on studies investigating racial and ethnic disparities in reproductive medicine as published in the eight highest impact peer-reviewed Ob/Gyn journals from January 1, 2010 through June 30, 2023. The data were collected as part of a review article [Racial and ethnic disparities in reproductive medicine in the United States: a narrative review of contemporary high-quality evidence](https://www.ajog.org/article/S0002-9378(24)00775-0/fulltext) published in the *American Journal of Obstetrics and Gynecology* in January 2025.  
 
-The [Trump administration has ordered agencies to purge their websites of any references to topics such as LGBTQ+ rights](https://www.npr.org/sections/shots-health-news/2025/01/31/nx-s1-5282274/trump-administration-purges-health-websites). 
+> "There has been increasing debate around how or if race and ethnicity should be used in medical research—including the conceptualization of race as a biological entity, a social construct, or a proxy for racism. The objectives of this narrative review are to identify and synthesize reported racial and ethnic inequalities in obstetrics and gynecology (ob/gyn) and develop informed recommendations for racial and ethnic inequity research in ob/gyn."
+
+A companion [interactive website](https://obgyn-shiny.shinyapps.io/obgyn-disp/) was published alongside the review article, and the data has also been used by college students to create [data art](https://katcorr.github.io/this-art-is-HARD/) to raise awareness about this research.   
+
+The data provides an opportunity to critically examine how racial and ethnic disparities in reproductive medicine are framed, measured, and discussed in the academic literature. 
+
+- Explore how race and ethnicity are categorized in these articles. Which categories are most prominent? Which are missing? How do sample sizes vary across groups?
+- Has the sentiment of article titles, abstracts, keywords, and/or aims statements changed over time?  
+- What type of health outcomes have been studied? What disparities have been identified? 
 
 
-An effort is underway to back up this publicly funded data before it is lost. 
-This week's dataset contains metadata about [CDC datasets backed up on archive.org](https://archive.org/download/20250128-cdc-datasets).
-
-> "The removal of HIV- and LGBTQ-related resources from the websites of the Centers for Disease Control and Prevention and other health agencies is deeply concerning and creates a dangerous gap in scientific information and data to monitor and respond to disease outbreaks," the Infectious Disease Society of America said in a statement. "Access to this information is crucial for infectious diseases and HIV health care professionals who care for people with HIV and members of the LGBTQ community and is critical to efforts to end the HIV epidemic."
-
-- Which Bureaus and Programs have the most datasets archived in this collection?
-- Explore some of the datasets. What keywords do the datasets have in common?
-
-
-Thank you to [Jon Harmon](https://github.com/jonthegeek) for curating this week's dataset.
+Thank you to [Kat Correia from Amherst College](https://github.com/katcorr) for curating this week's dataset.
