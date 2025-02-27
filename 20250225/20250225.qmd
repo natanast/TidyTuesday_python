@@ -32,7 +32,7 @@ df_melted['journal_wrapped'] = df_melted['journal'].apply(lambda x: "\n".join(te
 my_col = ['#3a5cbc', '#9291be', '#c15451', '#6F99AD', '#DF8F44', '#80796B']
 
 # Plot
-plt.rcParams["font.family"] = "Candara"
+plt.rcParams["font.family"] = "Arial"
 
 
 plt.figure(figsize=(6,6))
@@ -60,8 +60,14 @@ plt.title(
     )
 
 # Add the subtitle for clarification
-plt.text(x = 0.5, y = 1.045, s="Analyzing publications from top Ob/Gyn journals, \nwith point size reflecting the number of studies on racial and ethnic disparities.", 
-         ha='center', va='center', fontsize=10, style='italic', transform=plt.gca().transAxes)
+plt.text(x = 0.5, y = 1.045, 
+        s = "Analyzing publications from top Ob/Gyn journals, \nwith point size reflecting the number of studies on racial and ethnic disparities.", 
+        ha = 'center', 
+        va = 'center', 
+        fontsize = 10, 
+        style = 'italic', 
+        color = "#8C8380",
+        transform = plt.gca().transAxes)
 
 
 # Create dummy scatter plot points for the size legend
@@ -69,7 +75,7 @@ legend_sizes = [1, 5, 10, 17]  # Example sizes for the legend
 
 # These dummy scatter points are used to create the legend for sizes
 for size in legend_sizes:
-    plt.scatter([], [], s=size, color='grey', alpha=0.7, label=f'{size}')
+    plt.scatter([], [], s = size, color = 'grey', alpha = 0.7, label = f'{size}')
 
 # Add custom legend for the size (publication count)
 plt.legend(
