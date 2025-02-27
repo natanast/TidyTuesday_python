@@ -28,8 +28,10 @@ df_melted['journal_wrapped'] = df_melted['journal'].apply(lambda x: "\n".join(te
 
 my_col = ['#3a5cbc', '#9291be', '#c15451', '#6F99AD', '#DF8F44', '#80796B']
 
-
 # Plot
+plt.rcParams["font.family"] = "Arial"
+
+
 plt.figure(figsize=(7,7))
 
 sns.scatterplot(
@@ -49,7 +51,7 @@ plt.xlabel("")
 plt.ylabel("")
 plt.title(
     "Examining Racial and Ethnic Disparities in Reproductive Medicine", 
-    fontsize = 16,
+    fontsize = 15,
     pad = 35,
     x = 0.5
     )
@@ -59,7 +61,7 @@ plt.text(x = 0.5, y = 1.045,
         s = "Analyzing publications from top Ob/Gyn journals, \nwith point size reflecting the number of studies on racial and ethnic disparities.", 
         ha = 'center', 
         va = 'center', 
-        fontsize = 11, 
+        fontsize = 10, 
         style = 'italic', 
         color = "#8C8380",
         transform = plt.gca().transAxes)
@@ -91,5 +93,6 @@ plt.yticks(fontsize = 8)
 
 plt.show()
 
+# plt.savefig("plot.png", dpi = 600, bbox_inches='tight')  # Save with high resolution
 
 ```
