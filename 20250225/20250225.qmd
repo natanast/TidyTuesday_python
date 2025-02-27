@@ -35,14 +35,14 @@ my_col = ['#3a5cbc', '#9291be', '#c15451', '#6F99AD', '#DF8F44', '#80796B']
 plt.rcParams["font.family"] = "Arial"
 
 
-plt.figure(figsize=(6,6))
+plt.figure(figsize=(7,7))
 
 sns.scatterplot(
     data = df_melted, 
     x = "year", 
     y = "journal_wrapped", 
     size = "count", 
-    sizes = (30, 300), 
+    sizes = (40, 400), 
     alpha = 0.7,
     hue = "journal", 
     palette = my_col,
@@ -90,8 +90,8 @@ plt.legend(
     )
 
 # plt.xticks(rotation=45)
-plt.xticks(ticks=sorted(df['year'].unique()), rotation = 90, fontsize = 10)
-plt.yticks(fontsize = 10)
+plt.xticks(ticks=sorted(df['year'].unique()), rotation = 90, fontsize = 9)
+plt.yticks(fontsize = 9)
 
 
 plt.show()
