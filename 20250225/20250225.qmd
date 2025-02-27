@@ -36,7 +36,7 @@ sns.scatterplot(
     x = "year", 
     y = "journal_wrapped", 
     size = "count", 
-    sizes = (40, 400), 
+    sizes = (30, 300), 
     alpha = 0.7,
     hue = "journal", 
     palette = my_col,
@@ -62,6 +62,18 @@ plt.text(x = 0.5, y = 1.045,
         style = 'italic', 
         color = "#8C8380",
         transform = plt.gca().transAxes)
+
+# Add a caption to the plot
+plt.text(
+    x = 0.9, y = -0.1,  # Adjust x, y to position the caption below the plot
+    s = "Source: Academic Literature Dataset | Graphic: Natasa Anastasiadou", 
+    ha = 'center', 
+    va = 'center', 
+    fontsize = 7, 
+    style = 'italic', 
+    color = "#8C8380", 
+    transform = plt.gca().transAxes
+)
 
 
 # Create dummy scatter plot points for the size legend
