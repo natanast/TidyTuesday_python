@@ -29,9 +29,6 @@ df_melted['journal_wrapped'] = df_melted['journal'].apply(lambda x: "\n".join(te
 my_col = ['#3a5cbc', '#9291be', '#c15451', '#6F99AD', '#DF8F44', '#80796B']
 
 # Plot
-plt.rcParams["font.family"] = "Arial"
-
-
 plt.figure(figsize=(7,7))
 
 sns.scatterplot(
