@@ -13,9 +13,6 @@ import textwrap
 
 df = pd.read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-02-25/article_dat.csv')
 
-# model_dat = pd.read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-02-25/model_dat.csv')
-
-
 ```
 
 ```{python}
@@ -90,8 +87,8 @@ plt.legend(
     )
 
 # plt.xticks(rotation=45)
-plt.xticks(ticks=sorted(df['year'].unique()), rotation = 90, fontsize = 9)
-plt.yticks(fontsize = 9)
+plt.xticks(ticks=sorted(df['year'].unique()), rotation = 90, fontsize = 8)
+plt.yticks(fontsize = 8)
 
 
 plt.show()
