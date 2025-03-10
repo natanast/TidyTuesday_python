@@ -10,7 +10,6 @@ import seaborn as sns
 import textwrap
 
 # Load the data 
-
 df = pd.read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-02-25/article_dat.csv')
 
 ```
@@ -74,7 +73,6 @@ plt.text(
     color = "#8C8380", 
     transform = plt.gca().transAxes
 )
-
 
 # Create dummy scatter plot points for the size legend
 legend_sizes = [1, 5, 10, 17]  # Example sizes for the legend
