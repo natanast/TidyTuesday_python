@@ -10,20 +10,13 @@ import seaborn as sns
 import textwrap
 
 # Load the data 
+
 df = pd.read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-02-25/article_dat.csv')
 
 ```
 
 ```{python}
 # Clean data
-pub_trends = df.groupby(['year', 'journal']).size().unstack(fill_value=0)
-df_flat = pub_trends.reset_index()
-
-# One row per year-journal pair
-df_melted = df_flat.melt(id_vars = 'year', var_name = 'journal', value_name = 'count')
-
-# Wrap the journal names
-df_melted['journal_wrapped'] = df_melted['journal'].apply(lambda x: "\n".join(textwrap.wrap(x, width = 25)))
 
 my_col = ['#3a5cbc', '#9291be', '#c15451', '#6F99AD', '#DF8F44', '#80796B']
 
@@ -74,24 +67,6 @@ plt.text(
     transform = plt.gca().transAxes
 )
 
-# Create dummy scatter plot points for the size legend
-legend_sizes = [1, 5, 10, 17]  # Example sizes for the legend
-
-# These dummy scatter points are used to create the legend for sizes
-for size in legend_sizes:
-    plt.scatter([], [], s = size, color = 'grey', alpha = 0.7, label = f'{size}')
-
-# Add custom legend for the size (publication count)
-plt.legend(
-    title = 'Count', 
-    loc = 'upper center', 
-    bbox_to_anchor = (1.1, 0.65), 
-    fontsize = 8, 
-    ncol = 1, 
-    frameon = False, 
-    markerscale = 2, 
-    labelspacing = 1.2
-    )
 
 # plt.xticks(rotation=45)
 plt.xticks(ticks=sorted(df['year'].unique()), rotation = 90, fontsize = 8)
@@ -100,6 +75,5 @@ plt.yticks(fontsize = 8)
 
 plt.show()
 
-# plt.savefig("plot.png", dpi = 600, bbox_inches='tight')  # Save with high resolution
-
+plt.savefig("plot.png", dpi = 600, bbox_inches='tight') 
 ```
