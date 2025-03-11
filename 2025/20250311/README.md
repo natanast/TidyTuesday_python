@@ -1,16 +1,11 @@
-# Academic Literature on Racial and Ethnic Disparities in Reproductive Medicine in the US
+# Pixar Films
 
-This week we're exploring data on studies investigating racial and ethnic disparities in reproductive medicine as published in the eight highest impact peer-reviewed Ob/Gyn journals from January 1, 2010 through June 30, 2023. The data were collected as part of a review article [Racial and ethnic disparities in reproductive medicine in the United States: a narrative review of contemporary high-quality evidence](https://www.ajog.org/article/S0002-9378(24)00775-0/fulltext) published in the *American Journal of Obstetrics and Gynecology* in January 2025.  
+This week we're exploring Pixar films! The data this week comes from the {pixarfilms} R package by [Eric Leung](https://github.com/erictleung). 
 
-> "There has been increasing debate around how or if race and ethnicity should be used in medical research—including the conceptualization of race as a biological entity, a social construct, or a proxy for racism. The objectives of this narrative review are to identify and synthesize reported racial and ethnic inequalities in obstetrics and gynecology (ob/gyn) and develop informed recommendations for racial and ethnic inequity research in ob/gyn."
+> R data package to explore Pixar films, the people, and reception data. This package contains six data sets provided mostly in part by [Wikipedia](https://en.wikipedia.org/wiki/List_of_Pixar_films).
 
-A companion [interactive website](https://obgyn-shiny.shinyapps.io/obgyn-disp/) was published alongside the review article, and the data has also been used by college students to create [data art](https://katcorr.github.io/this-art-is-HARD/) to raise awareness about this research.   
+- Why are some values missing in the datasets?
+- Which films have the highest score in each rating system? Are there distinct differences in ratings?
+- Download the [`box_office` dataset](https://raw.githubusercontent.com/erictleung/pixarfilms/master/data-raw/box_office.csv) from the {pixarfilms} package. How does the `box_office_us_canada` value compare to the various ratings? Is the trend different for `box_office_worldwide`?
 
-The data provides an opportunity to critically examine how racial and ethnic disparities in reproductive medicine are framed, measured, and discussed in the academic literature. 
-
-- Explore how race and ethnicity are categorized in these articles. Which categories are most prominent? Which are missing? How do sample sizes vary across groups?
-- Has the sentiment of article titles, abstracts, keywords, and/or aims statements changed over time?  
-- What type of health outcomes have been studied? What disparities have been identified? 
-
-
-Thank you to [Kat Correia from Amherst College](https://github.com/katcorr) for curating this week's dataset.
+Thank you to [Jon Harmon](https://github.com/jonthegeek) for curating this week's dataset.
