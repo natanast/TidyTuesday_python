@@ -1,5 +1,5 @@
 ---
-title: "Academic Literature on Racial and Ethnic Disparities in Reproductive Medicine in the US."
+title: "Pixar Films."
 subtitle: "TidyTuesday Python Challenge: A collaboration with Posit"
 ---
 
@@ -11,7 +11,9 @@ import textwrap
 
 # Load the data 
 
-df = pd.read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-02-25/article_dat.csv')
+pixar_films = pandas.read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-03-11/pixar_films.csv')
+public_response = pandas.read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-03-11/public_response.csv')
+
 
 ```
 
