@@ -28,15 +28,12 @@ plt.figure(figsize=(12, 8))
 
 # Create a lollipop plot for Rotten Tomatoes score
 plt.scatter(sorted_films["rotten_tomatoes"], sorted_films["film"], color='orange', s=100, label="Rotten Tomatoes")
-# plt.plot(sorted_films["rotten_tomatoes"], sorted_films["film"], color="gray", lw=2)
 
 # Create a lollipop plot for Metacritic score
 plt.scatter(sorted_films["metacritic"], sorted_films["film"], color='green', s=100, label="Metacritic")
-# plt.plot(sorted_films["metacritic"], sorted_films["film"], color="gray", lw=2)
 
 # Create a lollipop plot for Critics' Choice score
 plt.scatter(sorted_films["critics_choice"], sorted_films["film"], color='blue', s=100, label="Critics' Choice")
-# plt.plot(sorted_films["critics_choice"], sorted_films["film"], color="gray", lw=2)
 
 # Adding titles and labels
 plt.title("Comparison of Pixar Films' Scores", fontsize=16)
@@ -50,24 +47,8 @@ plt.legend()
 plt.show()
 
 
+# my_col = ['#3a5cbc', '#9291be', '#c15451', '#6F99AD', '#DF8F44', '#80796B']
 
-
-my_col = ['#3a5cbc', '#9291be', '#c15451', '#6F99AD', '#DF8F44', '#80796B']
-
-# Plot
-plt.figure(figsize=(7,7))
-
-sns.scatterplot(
-    data = df_melted, 
-    x = "year", 
-    y = "journal_wrapped", 
-    size = "count", 
-    sizes = (30, 300), 
-    alpha = 0.7,
-    hue = "journal", 
-    palette = my_col,
-    legend = False
-)
 
 # Add labels and title
 plt.xlabel("")
