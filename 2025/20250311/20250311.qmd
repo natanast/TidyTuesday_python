@@ -11,15 +11,14 @@ import textwrap
 
 # Load the data 
 
-pixar_films = pandas.read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-03-11/pixar_films.csv')
-public_response = pandas.read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-03-11/public_response.csv')
+pixar_films = pd.read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-03-11/pixar_films.csv')
+public_response = pd.read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-03-11/public_response.csv')
 
 
 ```
 
 ```{python}
 # Clean data
-
 my_col = ['#3a5cbc', '#9291be', '#c15451', '#6F99AD', '#DF8F44', '#80796B']
 
 # Plot
