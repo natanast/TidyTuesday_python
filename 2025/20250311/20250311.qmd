@@ -7,7 +7,7 @@ subtitle: "TidyTuesday Python Challenge: A collaboration with Posit"
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-import textwrap
+import numpy as np
 
 # Load the data 
 
@@ -18,74 +18,46 @@ public_response = pd.read_csv('https://raw.githubusercontent.com/rfordatascience
 ```
 
 ```{python}
-# Clean data
-
-# Sort films by Rotten Tomatoes score
-sorted_films = public_response.sort_values(by="rotten_tomatoes", ascending=False)
-
-# Set the plot size
-plt.figure(figsize=(12, 8))
-
-# Create a lollipop plot for Rotten Tomatoes score
-plt.scatter(sorted_films["rotten_tomatoes"], sorted_films["film"], color='orange', s=100, label="Rotten Tomatoes")
-
-# Create a lollipop plot for Metacritic score
-plt.scatter(sorted_films["metacritic"], sorted_films["film"], color='green', s=100, label="Metacritic")
-
-# Create a lollipop plot for Critics' Choice score
-plt.scatter(sorted_films["critics_choice"], sorted_films["film"], color='blue', s=100, label="Critics' Choice")
-
-# Adding titles and labels
-plt.title("Comparison of Pixar Films' Scores", fontsize=16)
-plt.xlabel("Score (%)", fontsize=12)
-plt.ylabel("Film", fontsize=12)
-
-# Display legend
-plt.legend()
-
-# Display the plot
-plt.show()
-
-
-
-
-
-
+import pandas as pd
 import matplotlib.pyplot as plt
-import seaborn as sns
+import numpy as np
 
-# Sort films by Rotten Tomatoes score (or you can choose any other sorting strategy)
-sorted_films = public_response.sort_values(by="rotten_tomatoes", ascending=False)
+# Load the dataset from the URL
+public_response = pd.read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-03-11/public_response.csv')
 
-# Set up the figure and axis
-plt.figure(figsize=(14, 8))
+# Fill NaN values in 'critics_choice' with 0 for plotting (you can choose another value if preferred)
+public_response['critics_choice'] = public_response['critics_choice'].fillna(0)
 
-# Plot three lollipops for each film (one for each score)
-for i, row in sorted_films.iterrows():
-    # Rotten Tomatoes lollipop (positive side)
-    plt.plot([i - 0.2, i + 0.2], [row['rotten_tomatoes'], row['rotten_tomatoes']], color='orange', lw=2)
-    plt.scatter(i, row['rotten_tomatoes'], color='orange', s=100, label="Rotten Tomatoes" if i == 0 else "")
+# Drop the row where the film is 'Luca'
+public_response = public_response[public_response['film'] != 'Luca']
 
-    # Metacritic lollipop (centered)
-    plt.plot([i - 0.2, i + 0.2], [row['metacritic'], row['metacritic']], color='green', lw=2)
-    plt.scatter(i, row['metacritic'], color='green', s=100, label="Metacritic" if i == 0 else "")
 
-    # Critics' Choice lollipop (negative side)
-    plt.plot([i - 0.2, i + 0.2], [row['critics_choice'], row['critics_choice']], color='blue', lw=2)
-    plt.scatter(i, row['critics_choice'], color='blue', s=100, label="Critics' Choice" if i == 0 else "")
+# Sort the films alphabetically or by any other criteria (optional)
+sorted_films = public_response.sort_values('film')
 
-# Adding titles and labels
-plt.title("Comparison of Pixar Films' Scores", fontsize=16)
-plt.xlabel("Film", fontsize=12)
-plt.ylabel("Score", fontsize=12)
+# Create spaced-out x positions (e.g., 0, 3, 6, 9...)
+x = np.arange(0, len(sorted_films) * 5, 5)
 
-# Adding the film names to the x-axis
-plt.xticks(range(len(sorted_films)), sorted_films['film'], rotation=90, ha="center")
+# Set up the figure and axes
+fig, ax = plt.subplots(figsize=(12, 6))
 
-# Display the legend
-plt.legend()
+# Define the bar width
+bar_width = 0.8
 
-# Adjust plot layout and display
+# Plot bars for each score type
+ax.bar(x - bar_width, sorted_films['rotten_tomatoes'], width=bar_width, label='Rotten Tomatoes', color='skyblue')
+ax.bar(x, sorted_films['metacritic'], width=bar_width, label='Metacritic', color='salmon')
+ax.bar(x + bar_width, sorted_films['critics_choice'], width=bar_width, label="Critics' Choice", color='lightgreen')
+
+# Labeling
+ax.set_xlabel('Film', fontsize=12)
+ax.set_ylabel('Score (%)', fontsize=12)
+ax.set_title('Film Scores Comparison', fontsize=14)
+ax.set_xticks(x)
+ax.set_xticklabels(sorted_films['film'], rotation=45, ha='right')
+ax.legend()
+
+# Show plot
 plt.tight_layout()
 plt.show()
 
@@ -93,52 +65,4 @@ plt.show()
 
 
 
-
-
-
-
-# my_col = ['#3a5cbc', '#9291be', '#c15451', '#6F99AD', '#DF8F44', '#80796B']
-
-
-# Add labels and title
-plt.xlabel("")
-plt.ylabel("")
-plt.title(
-    "Examining Racial and Ethnic Disparities in Reproductive Medicine", 
-    fontsize = 15,
-    pad = 35,
-    x = 0.5
-    )
-
-# Add the subtitle for clarification
-plt.text(x = 0.5, y = 1.045, 
-        s = "Analyzing publications from top Ob/Gyn journals, \nwith point size reflecting the number of studies on racial and ethnic disparities.", 
-        ha = 'center', 
-        va = 'center', 
-        fontsize = 10, 
-        style = 'italic', 
-        color = "#8C8380",
-        transform = plt.gca().transAxes)
-
-# Add a caption to the plot
-plt.text(
-    x = 0.85, y = -0.1,  # Adjust x, y to position the caption below the plot
-    s = "Source: Academic Literature Dataset | Graphic: Natasa Anastasiadou", 
-    ha = 'center', 
-    va = 'center', 
-    fontsize = 7, 
-    style = 'italic', 
-    color = "#8C8380", 
-    transform = plt.gca().transAxes
-)
-
-
-# plt.xticks(rotation=45)
-plt.xticks(ticks=sorted(df['year'].unique()), rotation = 90, fontsize = 8)
-plt.yticks(fontsize = 8)
-
-
-plt.show()
-
-plt.savefig("plot.png", dpi = 600, bbox_inches='tight') 
 ```
