@@ -18,7 +18,7 @@ public_response = pd.read_csv('https://raw.githubusercontent.com/rfordatascience
 ```
 
 ```{python}
-import pandas as pd
+# clean data
 
 # Fill NaN values in 'critics_choice' with 0 for plotting (you can choose another value if preferred)
 public_response['critics_choice'] = public_response['critics_choice'].fillna(0)
