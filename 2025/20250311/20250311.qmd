@@ -19,11 +19,6 @@ public_response = pd.read_csv('https://raw.githubusercontent.com/rfordatascience
 
 ```{python}
 import pandas as pd
-import matplotlib.pyplot as plt
-import numpy as np
-
-# Load the dataset from the URL
-public_response = pd.read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-03-11/public_response.csv')
 
 # Fill NaN values in 'critics_choice' with 0 for plotting (you can choose another value if preferred)
 public_response['critics_choice'] = public_response['critics_choice'].fillna(0)
