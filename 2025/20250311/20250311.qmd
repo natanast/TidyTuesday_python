@@ -34,14 +34,13 @@ sorted_films = public_response.sort_values('film')
 x = np.arange(0, len(sorted_films) * 5, 5)
 
 # Set up the figure and axes
-fig, ax = plt.subplots(figsize=(10, 8))
+fig, ax = plt.subplots(figsize=(7, 7))
 
 # Define the bar width
 bar_width = 1
 
 
-my_col = ['#3a5cbc', '#9291be', '#c15451', '#6F99AD', '#DF8F44',
-'#80796B']
+my_col = ['#3a5cbc', '#9291be', '#c15451', '#6F99AD', '#DF8F44','#80796B']
 
 # Plot bars for each score type
 ax.bar(x - bar_width, sorted_films['rotten_tomatoes'], width=bar_width, label='Rotten Tomatoes', color='#6F99AD')
@@ -51,20 +50,28 @@ ax.bar(x + bar_width, sorted_films['critics_choice'], width=bar_width, label="Cr
 # Labeling
 ax.set_xticks(x)
 ax.set_xticklabels(sorted_films['film'], 
-                    fontsize = 8,
+                    fontsize = 6,
                     rotation = 45, 
                     ha = 'right')
 
 # Adjust the legend
-ax.legend(fontsize=7, loc='upper left', bbox_to_anchor=(1, 0.6), title="Critic Score Platforms")
+ax.legend(fontsize=4, 
+          title_fontsize=5,
+          loc='upper left', 
+          bbox_to_anchor=(1, 0.6), 
+          title="Critic Score Platforms")
 
 
 # Add labels and title
 plt.xlabel("")
-plt.ylabel('Score (%)', fontsize=12)
+plt.ylabel('Score (%)', fontsize=6)
+
+# Change the size of the y-axis tick labels
+ax.tick_params(axis='y', labelsize=6)
+
 plt.title(
     "Comparison of Pixar Films Critic Scores Across Multiple Platforms", 
-    fontsize = 15,
+    fontsize = 11,
     pad = 35,
     x = 0.5
     )
@@ -74,18 +81,18 @@ plt.text(x = 0.5, y = 1.08,
         s = "Exploring Rotten Tomatoes, Metacritic, and Critics' Choice ratings for popular films, \nwith insights on scoring differences.", 
         ha = 'center', 
         va = 'center', 
-        fontsize = 10, 
+        fontsize = 8, 
         style = 'italic', 
         color = "#8C8380",
         transform = plt.gca().transAxes)
 
 # Add a caption to the plot
 plt.text(
-    x = 0.85, y = -0.4,  # Adjust x, y to position the caption below 
-    s = "Source: Academic Literature Dataset | Graphic: Natasa Anastasiadou", 
+    x = 0.98, y = -0.3,  # Adjust x, y to position the caption below 
+    s = "Source: Pixar Films Dataset | Graphic: Natasa Anastasiadou", 
     ha = 'center', 
     va = 'center', 
-    fontsize = 7, 
+    fontsize = 5, 
     style = 'italic', 
     color = "#8C8380", 
     transform = plt.gca().transAxes
@@ -94,5 +101,8 @@ plt.text(
 # Show plot
 plt.tight_layout()
 plt.show()
+
+
+# plt.savefig("plot.png", dpi = 600, bbox_inches='tight')  # Save with high resolution
 
 ```
