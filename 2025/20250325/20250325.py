@@ -75,7 +75,7 @@ plt.title(
 
 # Add the subtitle for clarification
 plt.text(x = 0.5, y = 1.1, 
-        s = "Tracking the Evolution of Key Data Science Keywords Over Time (2005–2025)", 
+        s = "Tracking the Evolution of Data Science Keywords Over Time (2005–2025)", 
         ha = 'center', 
         va = 'center', 
         fontsize = 7, 
