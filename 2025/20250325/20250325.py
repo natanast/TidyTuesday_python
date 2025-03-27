@@ -42,7 +42,7 @@ smoothed_df = smoothed_df[smoothed_df.columns[::-1]]  # Reverse column order
 
 
 # Plotting the smoothed data using stackplot
-fig, ax = plt.subplots(figsize=(10, 7))
+fig, ax = plt.subplots(figsize=(12, 10))
 
 
 col = ['#a33a3a', '#ff8c86', '#ffaba4', '#ffcac3', '#acd6ec', '#8db7cc','#6F99AD', '#2c5769']
@@ -55,29 +55,30 @@ ax.stackplot(smoothed_df.index, smoothed_df.T, labels=smoothed_df.columns, alpha
 # Add labels and title
 # ax.set_title("Data Science Related Word Usage Over Time", fontsize=16)
 
-ax.set_xlabel("Year", fontsize=12)
-ax.set_ylabel("Word Frequency", fontsize=12)
+ax.set_xlabel("Year", fontsize = 8)
+ax.set_ylabel("Word Frequency", fontsize = 8)
 
 handles, labels = ax.get_legend_handles_labels()
-ax.legend(handles[::-1], labels[::-1], loc='center left', bbox_to_anchor=(1, 0.5))  # Move legend outside3
+ax.legend(handles[::-1], labels[::-1], loc='center left', bbox_to_anchor=(1, 0.5), fontsize=6)  # Move legend outside3
 
 ax.set_xticks([2005, 2010, 2015, 2020, 2025])  # Set specific years as ticks
-ax.set_xticklabels([2005, 2010, 2015, 2020, 2025], fontsize=12)  # Ensure labels are readable
+ax.set_xticklabels([2005, 2010, 2015, 2020, 2025], fontsize = 6)  # Ensure labels are readable
+ax.set_yticklabels(ax.get_yticks(), fontsize=6)
 
 
 plt.title(
-    "Comparison of Pixar Films Critic Scores Across Multiple Platforms", 
-    fontsize = 13,
+    "Data Science Terminology in Amazon Annual Reports", 
+    fontsize = 10,
     pad = 35,
     x = 0.5
     )
 
 # Add the subtitle for clarification
-plt.text(x = 0.5, y = 1.04, 
-        s = "Exploring Rotten Tomatoes, Metacritic, and Critics' Choice ratings for popular films, \nwith insights on scoring differences.", 
+plt.text(x = 0.5, y = 1.1, 
+        s = "Tracking the Evolution of Key Data Science Keywords Over Time (2005–2025)", 
         ha = 'center', 
         va = 'center', 
-        fontsize = 10, 
+        fontsize = 8, 
         style = 'italic', 
         color = "#8C8380",
         transform = plt.gca().transAxes)
@@ -85,10 +86,10 @@ plt.text(x = 0.5, y = 1.04,
 # Add a caption to the plot
 plt.text(
     x = 0.98, y = -0.3,  # Adjust x, y to position the caption below 
-    s = "Source: Pixar Films Dataset | Graphic: Natasa Anastasiadou", 
+    s = "Source:  Amazon's annual reports | Graphic: Natasa Anastasiadou", 
     ha = 'center', 
     va = 'center', 
-    fontsize = 7, 
+    fontsize = 5, 
     style = 'italic', 
     color = "#8C8380",
     transform = plt.gca().transAxes
@@ -101,3 +102,4 @@ plt.show()
 
 
 plt.savefig("plot.png", dpi = 600, bbox_inches='tight')  # Save with high resolution
+
