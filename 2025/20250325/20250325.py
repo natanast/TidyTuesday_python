@@ -50,25 +50,25 @@ col = ['#a33a3a', '#ff8c86', '#ffaba4', '#ffcac3', '#acd6ec', '#8db7cc','#6F99AD
 # col = ['#2c5769', '#6F99AD', '#8db7cc', '#acd6ec', '#ffcac3', '#ffaba4','#ff8c86', '#a33a3a']
 
 # Create the stream plot (stackplot)
-ax.stackplot(smoothed_df.index, smoothed_df.T, labels=smoothed_df.columns, alpha=0.7, colors=col, baseline="sym")
+ax.stackplot(smoothed_df.index, smoothed_df.T, labels=smoothed_df.columns, alpha=0.7, colors=col, baseline="sym", edgecolor='white', linewidth=0.5)
 
 # Add labels and title
 # ax.set_title("Data Science Related Word Usage Over Time", fontsize=16)
 
-ax.set_xlabel("Year", fontsize = 8)
-ax.set_ylabel("Word Frequency", fontsize = 8)
+ax.set_xlabel("Year", fontsize = 6)
+ax.set_ylabel("Word Frequency", fontsize = 6)
 
 handles, labels = ax.get_legend_handles_labels()
-ax.legend(handles[::-1], labels[::-1], loc='center left', bbox_to_anchor=(1, 0.5), fontsize=6)  # Move legend outside3
+ax.legend(handles[::-1], labels[::-1], loc='center left', bbox_to_anchor=(1, 0.5), fontsize=5)  # Move legend outside3
 
 ax.set_xticks([2005, 2010, 2015, 2020, 2025])  # Set specific years as ticks
-ax.set_xticklabels([2005, 2010, 2015, 2020, 2025], fontsize = 6)  # Ensure labels are readable
-ax.set_yticklabels(ax.get_yticks(), fontsize=6)
+ax.set_xticklabels([2005, 2010, 2015, 2020, 2025], fontsize = 5)  # Ensure labels are readable
+ax.set_yticklabels(ax.get_yticks(), fontsize=5)
 
 
 plt.title(
     "Data Science Terminology in Amazon Annual Reports", 
-    fontsize = 10,
+    fontsize = 9,
     pad = 35,
     x = 0.5
     )
@@ -78,7 +78,7 @@ plt.text(x = 0.5, y = 1.1,
         s = "Tracking the Evolution of Key Data Science Keywords Over Time (2005–2025)", 
         ha = 'center', 
         va = 'center', 
-        fontsize = 8, 
+        fontsize = 7, 
         style = 'italic', 
         color = "#8C8380",
         transform = plt.gca().transAxes)
@@ -94,6 +94,7 @@ plt.text(
     color = "#8C8380",
     transform = plt.gca().transAxes
 )
+
 
 
 # Display the plot
