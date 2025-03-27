@@ -3,10 +3,11 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
+from scipy import stats
 
 # Load data ---------
 
-df = pd.read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-03-25/report_words_clean.csv')
+report_words_clean = pd.read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-03-25/report_words_clean.csv')
 
 # clean data --------
 
@@ -44,7 +45,6 @@ smoothed_df = smoothed_df[smoothed_df.columns[::-1]]  # Reverse column order
 fig, ax = plt.subplots(figsize=(10, 7))
 
 
-
 col = ['#a33a3a', '#ff8c86', '#ffaba4', '#ffcac3', '#acd6ec', '#8db7cc','#6F99AD', '#2c5769']
 
 # col = ['#2c5769', '#6F99AD', '#8db7cc', '#acd6ec', '#ffcac3', '#ffaba4','#ff8c86', '#a33a3a']
@@ -53,14 +53,51 @@ col = ['#a33a3a', '#ff8c86', '#ffaba4', '#ffcac3', '#acd6ec', '#8db7cc','#6F99AD
 ax.stackplot(smoothed_df.index, smoothed_df.T, labels=smoothed_df.columns, alpha=0.7, colors=col, baseline="sym")
 
 # Add labels and title
-ax.set_title("Data Science Related Word Usage Over Time (Smoothed)", fontsize=16)
+# ax.set_title("Data Science Related Word Usage Over Time", fontsize=16)
 
 ax.set_xlabel("Year", fontsize=12)
 ax.set_ylabel("Word Frequency", fontsize=12)
 
 handles, labels = ax.get_legend_handles_labels()
-ax.legend(handles[::-1], labels[::-1], loc='right')  # Reverse legend order
+ax.legend(handles[::-1], labels[::-1], loc='center left', bbox_to_anchor=(1, 0.5))  # Move legend outside3
+
+ax.set_xticks([2005, 2010, 2015, 2020, 2025])  # Set specific years as ticks
+ax.set_xticklabels([2005, 2010, 2015, 2020, 2025], fontsize=12)  # Ensure labels are readable
+
+
+plt.title(
+    "Comparison of Pixar Films Critic Scores Across Multiple Platforms", 
+    fontsize = 13,
+    pad = 35,
+    x = 0.5
+    )
+
+# Add the subtitle for clarification
+plt.text(x = 0.5, y = 1.04, 
+        s = "Exploring Rotten Tomatoes, Metacritic, and Critics' Choice ratings for popular films, \nwith insights on scoring differences.", 
+        ha = 'center', 
+        va = 'center', 
+        fontsize = 10, 
+        style = 'italic', 
+        color = "#8C8380",
+        transform = plt.gca().transAxes)
+
+# Add a caption to the plot
+plt.text(
+    x = 0.98, y = -0.3,  # Adjust x, y to position the caption below 
+    s = "Source: Pixar Films Dataset | Graphic: Natasa Anastasiadou", 
+    ha = 'center', 
+    va = 'center', 
+    fontsize = 7, 
+    style = 'italic', 
+    color = "#8C8380",
+    transform = plt.gca().transAxes
+)
 
 
 # Display the plot
+plt.tight_layout()
 plt.show()
+
+
+plt.savefig("plot.png", dpi = 600, bbox_inches='tight')  # Save with high resolution
