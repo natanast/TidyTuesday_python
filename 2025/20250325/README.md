@@ -1,11 +1,18 @@
-# Pixar Films
+# Text Data From Amazon's Annual Reports
 
-This week we're exploring Pixar films! The data this week comes from the {pixarfilms} R package by [Eric Leung](https://github.com/erictleung). 
+This week we're exploring text data from 
+[Amazon's annual reports.](https://ir.aboutamazon.com/annual-reports-proxies-and-shareholder-letters/default.aspx)
+The PDFs were read into R using the {pdftools} R package, and explored by TidyTuesday
+participant Gregory Vander Vinne in 
+[a post on his website](https://gregoryvdvinne.github.io/Text-Mining-Amazon-Budgets.html).
+Note that stop words (e.g., "and", "the", "a") have been removed from the data.
 
-> R data package to explore Pixar films, the people, and reception data. This package contains six data sets provided mostly in part by [Wikipedia](https://en.wikipedia.org/wiki/List_of_Pixar_films).
+> As a publicly-traded company, Amazon releases an annual report every year (with a December 31st year end). An annual report is essentially a summary of the company’s performance over the past year. It includes details on how well the company did financially, what goals were achieved, and what challenges it faced.
 
-- Why are some values missing in the datasets?
-- Which films have the highest score in each rating system? Are there distinct differences in ratings?
-- Download the [`box_office` dataset](https://raw.githubusercontent.com/erictleung/pixarfilms/master/data-raw/box_office.csv) from the {pixarfilms} package. How does the `box_office_us_canada` value compare to the various ratings? Is the trend different for `box_office_worldwide`?
+- How have the words used change over time? 
 
-Thank you to [Jon Harmon](https://github.com/jonthegeek) for curating this week's dataset.
+- Are there meaningful changes in sentiment from year to year? 
+
+- Which words are likely to appear together in the same annual report?
+
+Thank you to [Gregory Vander Vinne](https://github.com/GregoryVdvinne) for curating this week's dataset.
