@@ -104,3 +104,44 @@ plt.show()
 
 plt.savefig("plot.png", dpi = 600, bbox_inches='tight')  # Save with high resolution
 
+
+
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from scipy.ndimage import gaussian_filter1d
+
+# Define a smoothing function
+def smooth_series(series, sigma=2):
+    return gaussian_filter1d(series, sigma=sigma)
+
+# Create a smoothed DataFrame
+smoothed_df = pd.DataFrame(index=word_counts_by_year.index)
+
+# Apply smoothing to each column
+for column in word_counts_by_year.columns:
+    smoothed_df[column] = smooth_series(word_counts_by_year[column], sigma=0.5)
+
+# Define colors
+colors = ['#a33a3a', '#ff8c86', '#ffaba4', '#ffcac3', '#acd6ec', '#8db7cc','#6F99AD', '#2c5769']
+
+# Create figure
+fig, ax = plt.subplots(figsize=(10, 6))
+
+# Plot stacked area chart with smoothed data
+ax.stackplot(smoothed_df.index, smoothed_df.T, labels=smoothed_df.columns, colors=colors, alpha=0.8)
+
+# Labels and title
+ax.set_xlabel("Year", fontsize=10)
+ax.set_ylabel("Word Frequency", fontsize=10)
+ax.set_title("Data Science Terminology in Amazon Reports", fontsize=12, fontweight="bold")
+
+# Set x-ticks
+ax.set_xticks(range(2005, 2025, 2))
+
+# Add a legend outside the plot
+ax.legend(loc='upper left', bbox_to_anchor=(1, 1), fontsize=9)
+
+# Show the plot
+plt.tight_layout()
+plt.show()
